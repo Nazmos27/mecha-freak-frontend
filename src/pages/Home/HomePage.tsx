@@ -5,6 +5,7 @@ import Container from "../../components/Container";
 import FeaturedSection from "./FeaturedSection";
 import Services from "./Services";
 import ReviewSection from "./ReviewSection";
+import BrandSection from "./BrandSection";
 
 const Home: React.FC = () => {
   return (
@@ -18,7 +19,7 @@ const Home: React.FC = () => {
         <Services/>
         <ReviewSection />
       </Container>
-      <TopBrands />
+      <BrandSection />
     </div>
   );
 };

@@ -1,8 +1,8 @@
 import React from "react";
 import { TProduct, useGetAllProductsQuery } from "../../redux/api/productsApi";
 import Loading from "../../components/Loading";
-import ProductCard from "../../components/ProductCard";
 import SectionHeader from "../../components/shared/SectionHeader";
+import ProductCard from "../../components/ProductCard";
 
 const FeaturedSection: React.FC = () => {
   const { data, isLoading } = useGetAllProductsQuery({ limit: 6, page: 1 });
