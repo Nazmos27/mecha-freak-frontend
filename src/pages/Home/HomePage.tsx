@@ -9,7 +9,13 @@ const Home: React.FC = () => {
       <Helmet>
         <title>Mecha Freak | Home</title>
       </Helmet>
-      
+      <Slider />
+      <Container>
+        <FeaturedProducts />
+        <OurService />
+        <Review />
+      </Container>
+      <TopBrands />
     </div>
   );
 };
