@@ -4,13 +4,13 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "./components/shared/NavBar";
 import Footer from "./components/shared/Footer";
 
-export const serverUrl = "https://key-haven-server.vercel.app";
+export const serverUrl = "http://localhost:5000";
 
 function App() {
   return (
     <>
       <Helmet>
-        <title>Key Haven</title>
+        <title>Mecha Freak</title>
       </Helmet>
       <div>
         <Navbar />
