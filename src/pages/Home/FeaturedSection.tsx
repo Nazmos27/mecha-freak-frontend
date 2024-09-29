@@ -4,7 +4,7 @@ import Loading from "../../components/Loading";
 import ProductCard from "../../components/ProductCard";
 import SectionHeader from "../../components/shared/SectionHeader";
 
-const FeaturedProducts: React.FC = () => {
+const FeaturedSection: React.FC = () => {
   const { data, isLoading } = useGetAllProductsQuery({ limit: 6, page: 1 });
   if (isLoading) {
     return <Loading />;
@@ -25,4 +25,4 @@ const FeaturedProducts: React.FC = () => {
   );
 };
 
-export default FeaturedProducts;
+export default FeaturedSection;

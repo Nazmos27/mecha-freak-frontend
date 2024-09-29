@@ -2,6 +2,9 @@ import React from "react";
 import { Helmet } from "react-helmet-async";
 
 import Container from "../../components/Container";
+import FeaturedSection from "./FeaturedSection";
+import Services from "./Services";
+import ReviewSection from "./ReviewSection";
 
 const Home: React.FC = () => {
   return (
@@ -9,11 +12,11 @@ const Home: React.FC = () => {
       <Helmet>
         <title>Mecha Freak | Home</title>
       </Helmet>
-      <Slider />
+      <img src="/mechaBanner.png" alt="" />
       <Container>
-        <FeaturedProducts />
-        <OurService />
-        <Review />
+        <FeaturedSection />
+        <Services/>
+        <ReviewSection />
       </Container>
       <TopBrands />
     </div>

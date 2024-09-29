@@ -13,7 +13,7 @@ import "aos/dist/aos.css";
 import React, { useEffect } from "react";
 import CountUp from "react-countup";
 import SectionHeader from "../../components/shared/SectionHeader";
-const OurService: React.FC = () => {
+const Services: React.FC = () => {
   useEffect(() => {
     AOS.init({
       duration: 800,
@@ -150,4 +150,4 @@ const OurService: React.FC = () => {
   );
 };
 
-export default OurService;
+export default Services;
