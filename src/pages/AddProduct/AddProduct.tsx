@@ -6,7 +6,7 @@ const AddProduct = () => {
   return (
     <div>
       <Helmet>
-        <title>Key Haven | Add Product</title>
+        <title>Mecha Freak | Add Product</title>
       </Helmet>
 
       <Container>

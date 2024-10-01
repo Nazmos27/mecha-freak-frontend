@@ -1,12 +1,11 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaCartShopping } from "react-icons/fa6";
-import logo from "../../assets/logo.svg";
 // import { useAppSelector } from "../../redux/hooks";
 // import { totalCartItems } from "../../redux/features/cart/cartSlice";
 
 const Navbar: React.FC = () => {
-//   const cartItems = useAppSelector(totalCartItems);
+  //   const cartItems = useAppSelector(totalCartItems);
 
   return (
     <div className="navbar bg-blue-100">
@@ -73,8 +72,8 @@ const Navbar: React.FC = () => {
           className="text-2xl font-bold flex items-center justify-center"
           to="/"
         >
-          <img src={logo} className="size-14" alt="logo" />
-          Key<span className="text-blue-500 font-extrabold">H</span>aven
+          <img src="aafdaf" className="size-14" alt="logo" />
+          Mecha<span className="text-blue-500 font-extrabold">F</span>reak
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">

@@ -31,7 +31,7 @@ const Cart: React.FC = () => {
   return (
     <div className="my-12">
       <Helmet>
-        <title>Key Haven | Cart</title>
+        <title>Mecha Freak | Cart</title>
       </Helmet>
       <Container>
         <div>

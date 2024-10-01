@@ -55,7 +55,7 @@ const ProductDetails: React.FC = () => {
       {/* toast */}
 
       <Helmet>
-        <title>Key Haven | Details</title>
+        <title>Mecha Freak | Details</title>
       </Helmet>
 
       <Container>

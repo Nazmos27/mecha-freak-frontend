@@ -45,7 +45,7 @@ const Products: React.FC = () => {
       <Container>
         {/* dynamic title */}
         <Helmet>
-          <title>Key Haven | Products</title>
+          <title>Mecha Freak | Products</title>
         </Helmet>
         {/* Section header */}
         <SectionHeader

@@ -4,10 +4,10 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import { Rating } from "@smastrom/react-rating";
-import SectionHeader from "../../components/SectionHeader";
-import { useGetAllReviewQuery } from "../../redux/api/reviewsApi";
 import Loading from "../../components/Loading";
 import { IoLocationSharp } from "react-icons/io5";
+import SectionHeader from "../../components/shared/SectionHeader";
+import { useGetAllReviewQuery } from "../../redux/api/reviewsApi";
 
 const ReviewSection = () => {
   const { data, isLoading } = useGetAllReviewQuery();

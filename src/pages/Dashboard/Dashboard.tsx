@@ -27,7 +27,7 @@ const Dashboard: React.FC = () => {
   return (
     <div className="my-12">
       <Helmet>
-        <title>Key Haven | Dashboard</title>
+        <title>Mecha Freak | Dashboard</title>
       </Helmet>
       <Container>
         <div className="flex flex-col justify-between min-h-[calc(100vh-100px)]">

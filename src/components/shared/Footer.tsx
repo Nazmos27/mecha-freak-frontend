@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../assets/logo.svg";
+// import logo from "../../assets/logo.svg";
 import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 
@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="footer footer-center bg-blue-950 text-primary-content p-10">
       <aside>
-        <img src={logo} alt="logo" className="size-20" />
+        <img src="afdaf" alt="logo" className="size-20" />
         <p className="font-bold">
           Key Haven Ltd.
           <br />
