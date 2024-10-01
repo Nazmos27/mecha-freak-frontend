@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "./components/shared/NavBar";
 import Footer from "./components/shared/Footer";
 
-export const serverUrl = "http://localhost:5000";
+export const serverUrl = "https://mecha-freak-server.vercel.app";
 
 function App() {
   return (

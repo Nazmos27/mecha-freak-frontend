@@ -9,24 +9,27 @@ const Footer: React.FC = () => {
       <aside>
         <img src="afdaf" alt="logo" className="size-20" />
         <p className="font-bold">
-          Key Haven Ltd.
+          Mecha Freak
           <br />
-          Providing reliable mechanical keyboard since 2024
+          Providing top brand's mechanical keyboard since 2024
         </p>
-        <p>Copyright © ${new Date().getFullYear()} - All right reserved</p>
+        <p>
+          {" "}
+          All right reserved to <b>Md. Nazmos Sakib</b>
+        </p>
       </aside>
       <nav>
         <div className="grid grid-flow-col gap-4">
-          <a href="https://www.linkedin.com/in/nurullahbhuiyan91/">
+          <a href="https://www.facebook.com/profile.php?id=100008488000660">
             <FaFacebook className="text-3xl" />
           </a>
-          <a href="https://www.linkedin.com/in/nurullahbhuiyan91/">
+          <a href="https://www.linkedin.com/in/nsakib27/">
             <FaLinkedin className="text-3xl" />
           </a>
-          <a href="https://x.com/BMNurullah">
+          <a href="https://x.com">
             <FaSquareXTwitter className="text-3xl" />
           </a>
-          <a href="https://github.com/nurullah91/">
+          <a href="https://github.com/Nazmos27">
             <FaGithub className="text-3xl" />
           </a>
         </div>
