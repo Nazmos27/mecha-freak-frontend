@@ -20,6 +20,8 @@ import { Badge } from "@mui/material";
 
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
+
+
 const Navbar: React.FC = () => {
   const cartItems = useAppSelector(totalCartItems);
 
@@ -62,7 +64,7 @@ const Navbar: React.FC = () => {
 
   return (
     <AppBar
-      position="static"
+      position="fixed"
       color="transparent"
       sx={{ backdropFilter: "blur(40px)" }}
     >
@@ -87,7 +89,7 @@ const Navbar: React.FC = () => {
               fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".1rem",
-              color: "inherit",
+              color: "white",
               textDecoration: "none",
             }}
           >
@@ -126,7 +128,7 @@ const Navbar: React.FC = () => {
                   className={({ isActive }) => (isActive ? "activeRoute" : "")}
                   to="/"
                 >
-                  <Typography textAlign="center">Home</Typography>
+                  <Typography textAlign="center" color="white">Home</Typography>
                 </NavLink>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
@@ -134,7 +136,7 @@ const Navbar: React.FC = () => {
                   className={({ isActive }) => (isActive ? "activeRoute" : "")}
                   to="/products"
                 >
-                  <Typography textAlign="center">Products</Typography>
+                  <Typography textAlign="center" color="white">Products</Typography>
                 </NavLink>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
@@ -142,7 +144,7 @@ const Navbar: React.FC = () => {
                   className={({ isActive }) => (isActive ? "activeRoute" : "")}
                   to="/about"
                 >
-                  <Typography textAlign="center">About Us</Typography>
+                  <Typography textAlign="center" color="white">About Us</Typography>
                 </NavLink>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
@@ -150,7 +152,7 @@ const Navbar: React.FC = () => {
                   className={({ isActive }) => (isActive ? "activeRoute" : "")}
                   to="/contact"
                 >
-                  <Typography textAlign="center">Contact Us</Typography>
+                  <Typography textAlign="center" color="white">Contact Us</Typography>
                 </NavLink>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
@@ -158,7 +160,7 @@ const Navbar: React.FC = () => {
                   className={({ isActive }) => (isActive ? "activeRoute" : "")}
                   to="/dashboard"
                 >
-                  <Typography textAlign="center">Dashboard</Typography>
+                  <Typography textAlign="center" color="white">Dashboard</Typography>
                 </NavLink>
               </MenuItem>
               {/* {pages.map((page) => (
@@ -194,7 +196,7 @@ const Navbar: React.FC = () => {
                 className={({ isActive }) => (isActive ? "activeRoute" : "")}
                 to="/"
               >
-                <Typography textAlign="center">Home</Typography>
+                <Typography textAlign="center" color="white">Home</Typography>
               </NavLink>
             </MenuItem>
             <MenuItem onClick={handleCloseNavMenu}>
@@ -202,7 +204,7 @@ const Navbar: React.FC = () => {
                 className={({ isActive }) => (isActive ? "activeRoute" : "")}
                 to="/products"
               >
-                <Typography textAlign="center">Products</Typography>
+                <Typography textAlign="center" color="white">Products</Typography>
               </NavLink>
             </MenuItem>
             <MenuItem onClick={handleCloseNavMenu}>
@@ -210,7 +212,7 @@ const Navbar: React.FC = () => {
                 className={({ isActive }) => (isActive ? "activeRoute" : "")}
                 to="/about"
               >
-                <Typography textAlign="center">About Us</Typography>
+                <Typography textAlign="center" color="white">About Us</Typography>
               </NavLink>
             </MenuItem>
             <MenuItem onClick={handleCloseNavMenu}>
@@ -218,7 +220,7 @@ const Navbar: React.FC = () => {
                 className={({ isActive }) => (isActive ? "activeRoute" : "")}
                 to="/contact"
               >
-                <Typography textAlign="center">Contact Us</Typography>
+                <Typography textAlign="center" color="white">Contact Us</Typography>
               </NavLink>
             </MenuItem>
             <MenuItem onClick={handleCloseNavMenu}>
@@ -226,7 +228,7 @@ const Navbar: React.FC = () => {
                 className={({ isActive }) => (isActive ? "activeRoute" : "")}
                 to="/dashboard"
               >
-                <Typography textAlign="center">Dashboard</Typography>
+                <Typography textAlign="center" color="white">Dashboard</Typography>
               </NavLink>
             </MenuItem>
             {/* {pages.map((page) => (
@@ -247,12 +249,12 @@ const Navbar: React.FC = () => {
               color="inherit"
             >
               <Badge badgeContent={cartItems} color="error">
-                <ShoppingCartOutlinedIcon fontSize="large" />
+                <ShoppingCartOutlinedIcon fontSize="large" className="text-white" />
               </Badge>
             </IconButton>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar alt="Nazmos Sakib" src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
             <Menu

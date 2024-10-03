@@ -25,10 +25,10 @@ const Services: React.FC = () => {
   return (
     <div className="my-12">
       <SectionHeader
-        title="Our service"
-        description="We are providing top-notch mechanical keyboards with free shipping, 24/7 customer support, and the best prices guaranteed. Enjoy a seamless shopping experience with us."
+        title="Our services"
+        description=""
       />
-      <div>
+      <div className="mt-6">
         <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
           <div className="border-2 px-5 hover:scale-110 transition-all duration-300 hover:bg-blue-100 py-3 rounded text-center flex flex-col items-center">
             <img src="./serviceIcons/high-quality.gif" className="h-20 w-20 rounded-full" alt="" />

@@ -31,8 +31,8 @@ const ReviewSection = () => {
   return (
     <div className="my-12">
       <SectionHeader
-        title={"Our Customers Review"}
-        description="Read testimonials from our satisfied customers who love their new mechanical keyboards. Hear their stories and see why we are the top choice. Join our community of enthusiasts."
+        title={"Reviews from our valuable customers"}
+        description=""
       />
 
       <div className=" my-6 border-2 min-h-[400px] flex">

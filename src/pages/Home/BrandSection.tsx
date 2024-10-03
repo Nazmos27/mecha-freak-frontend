@@ -4,13 +4,13 @@ import Container from "../../components/Container";
 import SectionHeader from "../../components/shared/SectionHeader";
 
 const brandInfo: string[] = [
-  "image-3.png",
-  "image-2.png",
-  "image-1.png",
-  "image.png",
-  "image-5.png",
-  "image-6.png",
-  "image-4.png",
+  "https://i.ibb.co.com/cQm8qRF/eyooso-Logo.jpg",
+  "https://i.ibb.co.com/3p2xxZJ/risophy-Logo.jpg",
+  "https://i.ibb.co.com/0smp1hD/nexkey-Logo.png",
+  "https://i.ibb.co.com/gV6Zk0F/meletrix-Logo.jpg",
+  "https://i.ibb.co.com/TBftKYZ/keychron-Logo.webp",
+  "https://i.ibb.co.com/TqMHnwx/rklogo.png",
+  "https://i.ibb.co.com/MMGWr0Y/Og-Img-Default.png"
 ];
 //todo :change the image url here
 
@@ -20,14 +20,14 @@ const BrandSection: React.FC = () => {
       <Container>
         <SectionHeader
           title="Top Featured Brands"
-          description="Explore the leading brands known for their quality and innovation in the mechanical keyboard world. From established names to rising stars, find your favorite. Elevate your typing experience."
+          description=""
         />
       </Container>
       <div className="my-6">
         <Marquee>
           {brandInfo.map((logo, index) => (
             <div key={index}>
-              <img src={logo} alt="logo" className="grayscale" />
+              <img src={logo} alt="logo" className="grayscale md:h-32 md:w-44 ml-4" />
             </div>
           ))}
         </Marquee>
