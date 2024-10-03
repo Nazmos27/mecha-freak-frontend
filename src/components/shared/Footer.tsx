@@ -39,3 +39,11 @@ const Footer: React.FC = () => {
 };
 
 export default Footer;
+
+// https://ibb.co.com/9qrdW05
+// https://ibb.co.com/YQfGk3S
+// https://ibb.co.com/9czB1m0
+// https://ibb.co.com/23b3Ghn
+// https://ibb.co.com/47f36Bt
+// https://ibb.co.com/28BXTJC
+// https://ibb.co.com/DR5PmwF

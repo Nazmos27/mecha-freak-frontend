@@ -20,16 +20,16 @@ export type TQueryParams = {
 
 type TServerResponseForAllProduct = {
   success: boolean;
-  data: TProduct[];
-  statusCode: number; //todo:have to remove it as per the backend response format
-  totalProducts: number;
   message: string;
+  data: TProduct[];
+  // statusCode: number; //todo:have to remove it as per the backend response format
+  totalProducts: number;
 };
 
 type TServerResponseForSingleProduct = {
   success: boolean;
   data: TProduct;
-  statusCode: number;
+  // statusCode: number;
   message: string;
 };
 

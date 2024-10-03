@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "./components/shared/NavBar";
 import Footer from "./components/shared/Footer";
 
-export const serverUrl = "https://mecha-freak-server.vercel.app";
+export const serverUrl = "http://localhost:5000";
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
       <div>
         <Navbar />
         <div>
-        {/* <div className="min-h-[calc(100vh-68px)]"> */}
+          {/* <div className="min-h-[calc(100vh-68px)]"> */}
           <Outlet />
         </div>
         <Footer />
