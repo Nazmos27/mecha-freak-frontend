@@ -1,13 +1,26 @@
 // Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
 import { Rating } from "@smastrom/react-rating";
 import Loading from "../../components/Loading";
 import { IoLocationSharp } from "react-icons/io5";
 import SectionHeader from "../../components/shared/SectionHeader";
 import { useGetAllReviewQuery } from "../../redux/api/reviewsApi";
+import ReviewSwipper from "./reviewSwipper";
+
+
+// import { Swiper, SwiperSlide } from 'swiper/react';
+
+// // Import Swiper styles
+// import 'swiper/css';
+// import 'swiper/css/pagination';
+// import 'swiper/css/navigation';
+
+// import './reviewStyle.css';
+
+// // import required modules
+// import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+
 
 const ReviewSection = () => {
   const { data, isLoading } = useGetAllReviewQuery();
@@ -22,8 +35,8 @@ const ReviewSection = () => {
         description="Read testimonials from our satisfied customers who love their new mechanical keyboards. Hear their stories and see why we are the top choice. Join our community of enthusiasts."
       />
 
-      <div className="text-white my-6">
-        <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
+      <div className=" my-6 border-2 min-h-[400px] flex">
+        {/* <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
           {data?.data?.map((review) => (
             <SwiperSlide key={review._id}>
               <div className="md:flex gap-6 lg:border-l-4 border-l-2 border-blue-500">
@@ -58,7 +71,9 @@ const ReviewSection = () => {
               </div>
             </SwiperSlide>
           ))}
-        </Swiper>
+        </Swiper> */}
+        <ReviewSwipper  data={data}/>
+      
       </div>
     </div>
   );

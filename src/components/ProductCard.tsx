@@ -32,19 +32,24 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           {brand}
         </Typography>
         <div className="flex justify-between">
-          <Typography gutterBottom variant="body2" component="div">
+          <Typography variant="body2" sx={{ color: "text.secondary" }}>
             Price : ${price}
           </Typography>
           <Typography variant="body2" sx={{ color: "text.secondary" }}>
             Quantity: {availableQuantity}
           </Typography>
         </div>
-        <Rating style={{ maxWidth: 100 }} value={ratings} />
+        <Rating readOnly style={{ maxWidth: 100 }} value={ratings} />
       </CardContent>
       <CardActions className="flex justify-center" sx={{ width: "100%" }}>
         <Link to={`/products/details/${_id}`} style={{ width: "100%" }}>
           {" "}
-          <Button size="small" variant="contained" fullWidth>
+          <Button
+            sx={{ backgroundColor: "#247674" }}
+            size="small"
+            variant="contained"
+            fullWidth
+          >
             View Details
           </Button>
         </Link>
