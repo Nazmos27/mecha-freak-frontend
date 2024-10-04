@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import {
   cart,
@@ -9,10 +9,12 @@ import {
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
 import { TOrder, useCreateOrderMutation } from "../../redux/api/orderApi";
+import { TextField, Button, Grid } from '@mui/material';
+import {loadStripe} from '@stripe/stripe-js'
 
 const CheckoutForm: React.FC = () => {
   const {
-    register,
+    control,
     handleSubmit,
     formState: { errors },
   } = useForm<TOrder>();
@@ -62,10 +64,20 @@ const CheckoutForm: React.FC = () => {
     };
   }, [cartItems, getTotalCartItems]);
 
+
+
+  //payment process
+
+  const makePayment = () => {
+    const stripe = loadStripe('')
+  }
+
+
+
   return (
     <div className="max-w-4xl mx-auto p-6">
       <h2 className="text-2xl font-bold mb-6">Checkout</h2>
-      <form
+      {/* <form
         onSubmit={handleSubmit(onSubmit)}
         className="grid grid-cols-1 lg:grid-cols-2 gap-6"
       >
@@ -155,7 +167,121 @@ const CheckoutForm: React.FC = () => {
             Place Order
           </button>
         </div>
-      </form>
+      </form> */}
+       <form onSubmit={handleSubmit(onSubmit)}>
+      <Grid container spacing={2}>
+        {/* Name Field */}
+        <Grid item xs={12} sm={6}>
+          <Controller
+            name="name"
+            control={control}
+            rules={{ required: 'Name is required' }}
+            render={({ field }) => (
+              <TextField
+                {...field}
+                label="Name"
+                variant="outlined"
+                fullWidth
+                error={!!errors.name}
+                helperText={errors.name?.message}
+              />
+            )}
+          />
+        </Grid>
+
+        {/* Phone Field */}
+        <Grid item xs={12} sm={6}>
+          <Controller
+            name="phone"
+            control={control}
+            rules={{ required: 'Phone is required' }}
+            render={({ field }) => (
+              <TextField
+                {...field}
+                label="Phone"
+                variant="outlined"
+                fullWidth
+                error={!!errors.phone}
+                helperText={errors.phone?.message}
+              />
+            )}
+          />
+        </Grid>
+
+        {/* Email Field */}
+        <Grid item xs={12} sm={6}>
+          <Controller
+            name="email"
+            control={control}
+            rules={{ required: 'Email is required' }}
+            render={({ field }) => (
+              <TextField
+                {...field}
+                label="Email"
+                variant="outlined"
+                type="email"
+                fullWidth
+                error={!!errors.email}
+                helperText={errors.email?.message}
+              />
+            )}
+          />
+        </Grid>
+
+        {/* Total Price Field */}
+        <Grid item xs={12} sm={6}>
+          <Controller
+            name="totalPrice"
+            control={control}
+            rules={{ required: 'Total Price is required' }}
+            render={({ field }) => (
+              <TextField
+                {...field}
+                label="Total Price"
+                variant="outlined"
+                type="number"
+                fullWidth
+                value={cartItems.totalPrice}
+                error={!!errors.totalPrice}
+                helperText={errors.totalPrice?.message}
+              />
+            )}
+          />
+        </Grid>
+
+        {/* Delivery Address Field */}
+        <Grid item xs={12}>
+          <Controller
+            name="deliveryAddress"
+            control={control}
+            rules={{ required: 'Delivery Address is required' }}
+            render={({ field }) => (
+              <TextField
+                {...field}
+                label="Delivery Address"
+                variant="outlined"
+                fullWidth
+                error={!!errors.deliveryAddress}
+                helperText={errors.deliveryAddress?.message}
+              />
+            )}
+          />
+        </Grid>
+
+        {/* Submit Button */}
+        <Grid item xs={12}>
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            fullWidth
+            onClick={makePayment}
+          >
+            Place Order
+          </Button>
+        </Grid>
+      </Grid>
+    </form>
     </div>
   );
 };

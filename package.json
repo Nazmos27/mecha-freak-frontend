@@ -16,6 +16,7 @@
     "@mui/material": "^6.1.1",
     "@reduxjs/toolkit": "^2.2.6",
     "@smastrom/react-rating": "^1.5.0",
+    "@stripe/stripe-js": "^4.6.0",
     "aos": "^3.0.0-beta.6",
     "lodash": "^4.17.21",
     "lottie-react": "^2.4.0",
