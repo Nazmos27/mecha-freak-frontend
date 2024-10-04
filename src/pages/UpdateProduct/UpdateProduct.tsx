@@ -6,7 +6,7 @@ import {
 } from "../../redux/api/productsApi";
 import { toast } from "sonner";
 import { useNavigate, useParams } from "react-router-dom";
-import { TextField, Button, Grid, Typography } from '@mui/material';
+import { TextField, Button, Grid } from '@mui/material';
 import {  Controller } from 'react-hook-form';
 import SectionHeader from "../../components/shared/SectionHeader";
 
@@ -45,7 +45,7 @@ const UpdateProduct: React.FC = () => {
   });
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
-    const toastId = toast.loading("Creating product");
+    const toastId = toast.loading("Updating product");
 
     data.price = Number(data.price);
     data.availableQuantity = Number(data.availableQuantity);

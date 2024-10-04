@@ -11,6 +11,8 @@ import AddProduct from "../pages/AddProduct/AddProduct";
 import UpdateProduct from "../pages/UpdateProduct/UpdateProduct";
 import AboutPage from "../pages/About/AboutPage";
 import ContactPage from "../pages/Contact/ContactPage";
+import PaymentSuccess from "../components/PaymentSuccess";
+import PaymentFailure from "../components/PaymentFailure";
 
 
 const router = createBrowserRouter([
@@ -74,6 +76,14 @@ const router = createBrowserRouter([
         element: <UpdateProduct />,
       },
     ],
+  },
+  {
+    path: "/payment-success",
+    element: <PaymentSuccess/>
+  },
+  {
+    path: "/payment-failure",
+    element: <PaymentFailure/>
   },
 ]);
 

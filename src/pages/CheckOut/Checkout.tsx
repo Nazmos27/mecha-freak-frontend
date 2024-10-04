@@ -9,8 +9,8 @@ import {
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
 import { TOrder, useCreateOrderMutation } from "../../redux/api/orderApi";
-import { TextField, Button, Grid } from '@mui/material';
-import {loadStripe} from '@stripe/stripe-js'
+import { TextField, Button, Grid } from "@mui/material";
+import { loadStripe } from "@stripe/stripe-js";
 
 const CheckoutForm: React.FC = () => {
   const {
@@ -64,15 +64,69 @@ const CheckoutForm: React.FC = () => {
     };
   }, [cartItems, getTotalCartItems]);
 
-
-
   //payment process
 
-  const makePayment = () => {
-    const stripe = loadStripe('')
-  }
+  // const makePayment = async() => {
+  //   const stripe = loadStripe('pk_test_51NIAoPCxYXIJWXf7MNlDJdBopmMpHI4jzdxBKv644fp07CPUBzn5D978PafikVKwrO3kUKVE4yzelvk2h87jOInL00suiUgQgj')
+  //   const body = {
+  //     products : cart
+  //   }
+  //   const headers = {
+  //     "Content-Type" : "aplication/json"
+  //   }
 
+  //   const response = await fetch(`${apiUrl}/create-checkout-session`,{
+  //     method : "POST",
+  //     headers : headers,
+  //     body : JSON.stringify(body)
+  //   })
 
+  //   const session = await response.json()
+
+  //   const result =  stripe.redirectToCheckout({
+  //     sessionId: session.id
+  //   })
+  // }
+  const key = import.meta.env.VITE_STRIPE_SECRET_KEY;
+  console.log(key);
+  const stripePromise = loadStripe(key);
+
+  const makePayment = async () => {
+    try {
+      const stripe = await stripePromise; // Wait until Stripe.js has loaded
+
+      const body = {
+        products: cartItems, // Assuming 'cart' is defined elsewhere with product data
+      };
+
+      const headers = {
+        "Content-Type": "application/json", // Corrected the typo here
+      };
+
+      // Fetch the checkout session from your server
+      const response = await fetch(
+        `http://localhost:5000/api/v1/payment/create-checkout-session`,
+        {
+          method: "POST",
+          headers: headers,
+          body: JSON.stringify(body),
+        }
+      );
+
+      const session = await response.json();
+
+      // Redirect to checkout
+      const result = await stripe?.redirectToCheckout({
+        sessionId: session.id,
+      });
+
+      if (result?.error) {
+        console.error("Error redirecting to checkout:", result.error.message);
+      }
+    } catch (error) {
+      console.error("Error during payment process:", error);
+    }
+  };
 
   return (
     <div className="max-w-4xl mx-auto p-6">
@@ -168,120 +222,120 @@ const CheckoutForm: React.FC = () => {
           </button>
         </div>
       </form> */}
-       <form onSubmit={handleSubmit(onSubmit)}>
-      <Grid container spacing={2}>
-        {/* Name Field */}
-        <Grid item xs={12} sm={6}>
-          <Controller
-            name="name"
-            control={control}
-            rules={{ required: 'Name is required' }}
-            render={({ field }) => (
-              <TextField
-                {...field}
-                label="Name"
-                variant="outlined"
-                fullWidth
-                error={!!errors.name}
-                helperText={errors.name?.message}
-              />
-            )}
-          />
-        </Grid>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Grid container spacing={2}>
+          {/* Name Field */}
+          <Grid item xs={12} sm={6}>
+            <Controller
+              name="name"
+              control={control}
+              rules={{ required: "Name is required" }}
+              render={({ field }) => (
+                <TextField
+                  {...field}
+                  label="Name"
+                  variant="outlined"
+                  fullWidth
+                  error={!!errors.name}
+                  helperText={errors.name?.message}
+                />
+              )}
+            />
+          </Grid>
 
-        {/* Phone Field */}
-        <Grid item xs={12} sm={6}>
-          <Controller
-            name="phone"
-            control={control}
-            rules={{ required: 'Phone is required' }}
-            render={({ field }) => (
-              <TextField
-                {...field}
-                label="Phone"
-                variant="outlined"
-                fullWidth
-                error={!!errors.phone}
-                helperText={errors.phone?.message}
-              />
-            )}
-          />
-        </Grid>
+          {/* Phone Field */}
+          <Grid item xs={12} sm={6}>
+            <Controller
+              name="phone"
+              control={control}
+              rules={{ required: "Phone is required" }}
+              render={({ field }) => (
+                <TextField
+                  {...field}
+                  label="Phone"
+                  variant="outlined"
+                  fullWidth
+                  error={!!errors.phone}
+                  helperText={errors.phone?.message}
+                />
+              )}
+            />
+          </Grid>
 
-        {/* Email Field */}
-        <Grid item xs={12} sm={6}>
-          <Controller
-            name="email"
-            control={control}
-            rules={{ required: 'Email is required' }}
-            render={({ field }) => (
-              <TextField
-                {...field}
-                label="Email"
-                variant="outlined"
-                type="email"
-                fullWidth
-                error={!!errors.email}
-                helperText={errors.email?.message}
-              />
-            )}
-          />
-        </Grid>
+          {/* Email Field */}
+          <Grid item xs={12} sm={6}>
+            <Controller
+              name="email"
+              control={control}
+              rules={{ required: "Email is required" }}
+              render={({ field }) => (
+                <TextField
+                  {...field}
+                  label="Email"
+                  variant="outlined"
+                  type="email"
+                  fullWidth
+                  error={!!errors.email}
+                  helperText={errors.email?.message}
+                />
+              )}
+            />
+          </Grid>
 
-        {/* Total Price Field */}
-        <Grid item xs={12} sm={6}>
-          <Controller
-            name="totalPrice"
-            control={control}
-            rules={{ required: 'Total Price is required' }}
-            render={({ field }) => (
-              <TextField
-                {...field}
-                label="Total Price"
-                variant="outlined"
-                type="number"
-                fullWidth
-                value={cartItems.totalPrice}
-                error={!!errors.totalPrice}
-                helperText={errors.totalPrice?.message}
-              />
-            )}
-          />
-        </Grid>
+          {/* Total Price Field */}
+          <Grid item xs={12} sm={6}>
+            <Controller
+              name="totalPrice"
+              control={control}
+              rules={{ required: "Total Price is required" }}
+              render={({ field }) => (
+                <TextField
+                  {...field}
+                  label="Total Price"
+                  variant="outlined"
+                  type="number"
+                  fullWidth
+                  value={cartItems.totalPrice}
+                  error={!!errors.totalPrice}
+                  helperText={errors.totalPrice?.message}
+                />
+              )}
+            />
+          </Grid>
 
-        {/* Delivery Address Field */}
-        <Grid item xs={12}>
-          <Controller
-            name="deliveryAddress"
-            control={control}
-            rules={{ required: 'Delivery Address is required' }}
-            render={({ field }) => (
-              <TextField
-                {...field}
-                label="Delivery Address"
-                variant="outlined"
-                fullWidth
-                error={!!errors.deliveryAddress}
-                helperText={errors.deliveryAddress?.message}
-              />
-            )}
-          />
-        </Grid>
+          {/* Delivery Address Field */}
+          <Grid item xs={12}>
+            <Controller
+              name="deliveryAddress"
+              control={control}
+              rules={{ required: "Delivery Address is required" }}
+              render={({ field }) => (
+                <TextField
+                  {...field}
+                  label="Delivery Address"
+                  variant="outlined"
+                  fullWidth
+                  error={!!errors.deliveryAddress}
+                  helperText={errors.deliveryAddress?.message}
+                />
+              )}
+            />
+          </Grid>
 
-        {/* Submit Button */}
-        <Grid item xs={12}>
-          <Button
-            type="submit"
-            variant="contained"
-            color="primary"
-            fullWidth
-            onClick={makePayment}
-          >
-            Place Order
-          </Button>
+          {/* Submit Button */}
+          <Grid item xs={12}>
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              fullWidth
+              onClick={makePayment}
+            >
+              Place Order
+            </Button>
+          </Grid>
         </Grid>
-      </Grid>
-    </form>
+      </form>
     </div>
   );
 };
