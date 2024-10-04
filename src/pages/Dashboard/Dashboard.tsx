@@ -132,6 +132,9 @@ import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import { Button } from "@mui/material";
+import DeleteOutline from "@mui/icons-material/DeleteOutline";
+import { DeleteOutlineOutlined, EditOutlined } from "@mui/icons-material";
 
 function createData(
   title: string,
@@ -222,14 +225,14 @@ function Row(props: { row: ReturnType<typeof createData> }) {
         </TableCell>
         <TableCell align="right">{row.title}</TableCell>
         <TableCell align="right">{row.price}</TableCell>
-        <TableCell align="right">
-          <div className="flex items-center">
+        <TableCell align="left">
+          <div className="flex items-end justify-end">
             <Link to={`/dashboard/update-product/${row._id}`}>
-              <FaEdit className="text-2xl text-blue-500" />
+              <EditOutlined fontSize="large" className="text-2xl text-blue-500" />
             </Link>
 
             <button onClick={() => handleDelete(row._id)}>
-              <MdDelete className="text-red-600 text-3xl" />
+              <DeleteOutlineOutlined fontSize="large" className="text-red-600 text-3xl" />
             </button>
           </div>
         </TableCell>
@@ -309,7 +312,7 @@ export default function CollapsibleTable() {
 
   console.log(products, "products");
   return (
-    <div className="mt-28">
+    <div className="my-28 text-center">
       <Helmet>
         <title>Mecha Freak | Dashboard</title>
       </Helmet>
@@ -317,24 +320,45 @@ export default function CollapsibleTable() {
         title={`Total Products: ${products?.length}`}
         description=" "
       />
-      <TableContainer className="mt-10 px-8" component={Paper}>
-        <Table aria-label="collapsible table">
-          <TableHead>
-            <TableRow>
-              <TableCell />
-              <TableCell>Image</TableCell>
-              <TableCell align="right">Name</TableCell>
-              <TableCell align="right">Price</TableCell>
-              <TableCell align="right">Actions</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {rows.map((row) => (
-              <Row key={row.title} row={row} />
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+      {products?.length ? (
+        <TableContainer className="my-10 px-8" component={Paper}>
+          <Table aria-label="collapsible table">
+            <TableHead>
+              <TableRow>
+                <TableCell />
+                <TableCell>Image</TableCell>
+                <TableCell align="right">Name</TableCell>
+                <TableCell align="right">Price</TableCell>
+                <TableCell align="right">Actions</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {rows.map((row) => (
+                <Row key={row.title} row={row} />
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      ) : (
+        <div className="min-h-[calc(100vh-70px)] flex flex-col items-center justify-center">
+          <div className="flex flex-col gap-4 items-center justify-center">
+            <h1 className="text-4xl text-blue-500 font-bold text-center">
+              No products available
+            </h1>
+            <Link
+              to="/dashboard/add-products"
+              className="btn myPrimaryBtn mx-auto"
+            >
+              Add Products
+            </Link>
+          </div>
+        </div>
+      )}
+      <Link to="/dashboard/add-product" className="">
+        <Button size="large" variant="contained" >
+          Add a product
+        </Button>
+      </Link>
     </div>
   );
 }

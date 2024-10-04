@@ -246,9 +246,9 @@ const Navbar: React.FC = () => {
               aria-label="show 4 new mails"
               color="inherit"
             >
-              <Badge badgeContent={cartItems} color="error">
+              <Link to='/cart'><Badge badgeContent={cartItems} color="error">
                 <ShoppingCartOutlinedIcon fontSize="large" />
-              </Badge>
+              </Badge></Link>
             </IconButton>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
