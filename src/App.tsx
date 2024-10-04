@@ -14,7 +14,7 @@ function App() {
       </Helmet>
       <div>
         <Navbar />
-        <div>
+        <div className="mt-16">
           {/* <div className="min-h-[calc(100vh-68px)]"> */}
           <Outlet />
         </div>
