@@ -12,6 +12,15 @@ import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import SectionHeader from "../../components/shared/SectionHeader";
 
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+import { Button } from "@mui/material";
+
 const Cart: React.FC = () => {
   const cartItems = useAppSelector(cart);
   const dispatch = useAppDispatch();
@@ -28,6 +37,25 @@ const Cart: React.FC = () => {
     dispatch(decreaseQuantityFromCart(productId));
   };
 
+  function createData(
+    image: string,
+    price: number,
+    quantity: number,
+    subTotal: number,
+    productId: string
+  ) {
+    return { image, price, quantity, subTotal, productId };
+  }
+
+  const transformArray = (arr) => {
+    return arr.map((item) =>
+      createData(item.image, item.price, item.quantity, item.subTotal, item.productId)
+    );
+  };
+
+  // Usage
+  const rows = transformArray(cartItems.items);
+
   return (
     <div className="my-12">
       <Helmet>
@@ -41,71 +69,53 @@ const Cart: React.FC = () => {
                 title={`Total cart Items ${cartItems.items.length}`}
                 description=" "
               />
-              <table className="table">
-                {/* head */}
-                <thead>
-                  <tr>
-                    <th>Product</th>
-                    <th className="text-end">Price</th>
-                    <th className="">Quantity</th>
-                    <th className="text-end">Subtotal</th>
-                    <th className="text-end">Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {cartItems.items.map((item) => (
-                    <tr key={item.productId}>
-                      <td>
-                        <div className="flex items-center gap-3">
-                          <div className="avatar">
-                            <div className="rounded-md h-28 w-24">
-                              <img src={item.image} alt="Product image" />
-                            </div>
-                          </div>
-                          <div>
-                            <div className="font-bold">{item.productTitle}</div>
-                            <div className="text-sm opacity-50">
-                              {item.brand}
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                      <td className="text-end text-xl font-bold text-blue-500">
-                        {item.price} $
-                      </td>
-                      <td className="">
+              <TableContainer component={Paper}>
+                <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                  <TableHead>
+                    <TableRow>
+                      <TableCell>Image</TableCell>
+                      <TableCell align="right">Price</TableCell>
+                      <TableCell align="right">Quantity</TableCell>
+                      <TableCell align="right">SubTotal</TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {rows.map((row) => (
+                      <TableRow
+                        key={row.name}
+                        sx={{
+                          "&:last-child td, &:last-child th": { border: 0 },
+                        }}
+                      >
+                        <TableCell component="th" scope="row">
+                          <img src={row.image} className="h-20 w-40" alt="" />
+                        </TableCell>
+
+                        <TableCell align="right">{row.price}</TableCell>
+                        <TableCell align="right">
                         <button
-                          onClick={() => handleDecreaseQuantity(item.productId)}
+                          onClick={() => handleDecreaseQuantity(row.productId)}
                           className="btn btn-sm myOutlineBtn mr-2 font-bold text-xl"
                         >
                           -
                         </button>
                         <span className="text-xl font-bold">
                           {" "}
-                          {item.quantity}
+                          {row.quantity}
                         </span>
                         <button
-                          onClick={() => handleIncreaseQuantity(item.productId)}
+                          onClick={() => handleIncreaseQuantity(row.productId)}
                           className="btn btn-sm ml-2 myOutlineBtn font-bold text-xl"
                         >
                           +
                         </button>
-                      </td>
-                      <td className="text-end text-xl font-bold text-blue-500">
-                        {item.subTotal} $
-                      </td>
-                      <td className="text-end text-xl font-bold text-blue-500">
-                        <button
-                          onClick={() => deleteCart(item.productId)}
-                          className="btn btn-sm myPrimaryBtn"
-                        >
-                          Delete
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+                        </TableCell>
+                        <TableCell align="right">{parseFloat(row.subTotal).toFixed(2)}</TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </TableContainer>
               <div className="text-end my-2">
                 <h2 className="text-xl font-bold">
                   Total Quantity:{" "}
@@ -115,10 +125,12 @@ const Cart: React.FC = () => {
                 </h2>
                 <h2 className="text-xl font-bold my-2">
                   Total Price:{" "}
-                  <span className="text-red-500">{cartItems.totalPrice} $</span>
+                  <span className="text-red-500">{(cartItems.totalPrice).toFixed(2)} $</span>
                 </h2>
                 <Link to="/checkout" className="btn myPrimaryBtn">
-                  Checkout
+                  <Button variant="contained" sx={{ backgroundColor: "#247674" }}>
+                    checkout
+                  </Button>
                 </Link>
               </div>
             </div>

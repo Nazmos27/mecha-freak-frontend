@@ -87,7 +87,7 @@ export const cartSlice = createSlice({
 
       if (existingItem) {
         existingItem.quantity = existingItem.quantity + 1;
-        existingItem.subTotal = existingItem.subTotal + existingItem.price;
+        existingItem.subTotal = (existingItem.subTotal + existingItem.price);
         state.totalPrice = state.totalPrice + existingItem.price;
         state.totalQuantity = state.totalQuantity + 1;
       }
