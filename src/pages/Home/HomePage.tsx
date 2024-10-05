@@ -6,6 +6,8 @@ import FeaturedSection from "./FeaturedSection";
 import Services from "./Services";
 import ReviewSection from "./ReviewSection";
 import BrandSection from "./BrandSection";
+import WhyMecha from "./WhyMecha";
+import Customization from "./Customization";
 
 const Home: React.FC = () => {
   return (
@@ -18,6 +20,8 @@ const Home: React.FC = () => {
         <FeaturedSection />
         <Services/>
         <ReviewSection />
+        <WhyMecha/>
+        <Customization/>
       </Container>
       <BrandSection />
     </div>

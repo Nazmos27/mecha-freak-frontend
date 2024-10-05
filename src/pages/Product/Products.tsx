@@ -6,6 +6,8 @@ import Container from "../../components/Container";
 import { debounce } from "lodash";
 import Loading from "../../components/Loading";
 import SectionHeader from "../../components/shared/SectionHeader";
+import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
+import { Button } from "@mui/material";
 
 const Products: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -69,28 +71,33 @@ const Products: React.FC = () => {
           ))}
         </div>
 
-        <div className="flex justify-center mt-6">
-          <button
+        <div className="flex justify-center items-center mt-6">
+          <Button
             disabled={currentPage === 1}
             onClick={() =>
               setCurrentPage((prevPage) => Math.max(prevPage - 1, 1))
             }
-            className="btn myPrimaryBtn"
+            className=""
+            variant="contained"
           >
-            Previous
-          </button>
+            <ArrowBackIos/>
+            Prev
+          </Button>
           <span className="mx-4">
             Page {currentPage} of {totalPages}
           </span>
-          <button
+          <Button
             disabled={currentPage === totalPages}
             onClick={() =>
               setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages))
             }
-            className="btn myPrimaryBtn"
+            className=""
+            variant="contained"
           >
             Next
-          </button>
+            <ArrowForwardIos/>
+            
+          </Button>
         </div>
       </Container>
     </div>

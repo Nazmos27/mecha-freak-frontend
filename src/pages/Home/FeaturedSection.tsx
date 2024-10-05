@@ -14,7 +14,7 @@ const FeaturedSection: React.FC = () => {
     <div className="my-12">
       <SectionHeader
         title="Featured Keyboard"
-        description="Discover our curated selection of the latest and top-rated mechanical keyboards. Each model blends performance, style, and value. Find your perfect keyboard today"
+        description=""
       />
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 my-6">
         {data?.data?.map((product: TProduct) => (
