@@ -1,17 +1,9 @@
-// Icons
-import { AiFillSafetyCertificate } from "react-icons/ai";
-import { IoIosPricetags } from "react-icons/io";
-import { RiCustomerService2Fill } from "react-icons/ri";
-import { TbTruckDelivery } from "react-icons/tb";
-import { GoSmiley } from "react-icons/go";
-import { GiMultipleTargets } from "react-icons/gi";
 
 // Aos
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 import React, { useEffect } from "react";
-import CountUp from "react-countup";
 import SectionHeader from "../../components/shared/SectionHeader";
 const Services: React.FC = () => {
   useEffect(() => {

@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import {
   Box,
   Container,
@@ -14,14 +13,15 @@ import {
   useTheme,
   styled,
 } from "@mui/material";
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
 import {
   SiVisa,
   SiMastercard,
   SiPaypal,
   SiAmericanexpress,
 } from "react-icons/si";
-import { FaGithub, FaSquareXTwitter } from "react-icons/fa6";
+import { FaGithub } from "react-icons/fa6";
+import { useState } from "react";
 
 const StyledFooter = styled(Box)(({ theme }) => ({
   backgroundColor: "#1a1a1a",
@@ -62,7 +62,7 @@ const Footer = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const handleSubscribe = (e) => {
+  const handleSubscribe = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     // Handle subscription logic here
     console.log("Subscribed with email:", email);
@@ -77,7 +77,7 @@ const Footer = () => {
   };
 
   return (
-    <StyledFooter component="footer">
+    <StyledFooter >
       <Container maxWidth="lg">
         <Grid container spacing={4}>
           <Grid item xs={12} sm={6} md={3}>

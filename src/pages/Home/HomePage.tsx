@@ -15,7 +15,7 @@ const Home: React.FC = () => {
       <Helmet>
         <title>Mecha Freak | Home</title>
       </Helmet>
-      <img src="/mechaBanner.png" alt="" />
+      <img src="https://i.ibb.co.com/8XXv28j/mecha-Banner.webp" alt="" />
       <Container>
         <FeaturedSection />
         <Services/>

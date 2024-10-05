@@ -10,7 +10,6 @@ import "./reviewStyle.css";
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import { TReview } from "../../redux/api/reviewsApi";
 import { Rating } from "@smastrom/react-rating";
 
 
@@ -29,7 +28,7 @@ import { Rating } from "@smastrom/react-rating";
 
 
 
-const ReviewSwipper = ({ data }) => {
+const ReviewSwipper = ({ data }   )  => {
   return (
     <div className="w-full relative bg-[url('https://hhkeyboard.us/-/media/project/hhkeyboard/blog/2023/03/mechanical_keyboard_plates_blog_1440w.jpg')] bg-cover bg-center p-10 border-green-400 border-2">
       <Swiper

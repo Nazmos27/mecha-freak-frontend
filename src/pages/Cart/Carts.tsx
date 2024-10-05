@@ -20,6 +20,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { Button } from "@mui/material";
+import { DeleteOutline } from "@mui/icons-material";
 
 const Cart: React.FC = () => {
   const cartItems = useAppSelector(cart);
@@ -42,12 +43,21 @@ const Cart: React.FC = () => {
     price: number,
     quantity: number,
     subTotal: number,
-    productId: string
+    productId: string,
+
   ) {
     return { image, price, quantity, subTotal, productId };
   }
 
-  const transformArray = (arr) => {
+  type TRowData = {
+    image: string;
+    price: number;
+    quantity: number;
+    subTotal: number;
+    productId: string;
+  }
+
+  const transformArray = (arr : TRowData[]) => {
     return arr.map((item) =>
       createData(item.image, item.price, item.quantity, item.subTotal, item.productId)
     );
@@ -82,7 +92,7 @@ const Cart: React.FC = () => {
                   <TableBody>
                     {rows.map((row) => (
                       <TableRow
-                        key={row.name}
+                        key={row.productId}
                         sx={{
                           "&:last-child td, &:last-child th": { border: 0 },
                         }}
@@ -110,7 +120,8 @@ const Cart: React.FC = () => {
                           +
                         </button>
                         </TableCell>
-                        <TableCell align="right">{parseFloat(row.subTotal).toFixed(2)}</TableCell>
+                        <TableCell align="right">{(row.subTotal).toFixed(2)}</TableCell>
+                        <TableCell><button onClick={() => deleteCart(row.productId)}><DeleteOutline/></button></TableCell>
                       </TableRow>
                     ))}
                   </TableBody>

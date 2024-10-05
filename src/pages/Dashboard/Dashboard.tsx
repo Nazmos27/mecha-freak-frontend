@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-empty-object-type */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
@@ -24,6 +26,7 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { Button } from "@mui/material";
 import { DeleteOutlineOutlined, EditOutlined } from "@mui/icons-material";
+import { MutationActionCreatorResult, MutationDefinition, BaseQueryFn, FetchArgs, FetchBaseQueryError, FetchBaseQueryMeta } from "@reduxjs/toolkit/query";
 
 function createData(
   title: string,
@@ -57,7 +60,7 @@ function createData(
 }
 
 //custom toast component to ensure delete actions
-const showToastWithOptions = (deletedProduct) => {
+const showToastWithOptions = (deletedProduct: { (): MutationActionCreatorResult<MutationDefinition<string, BaseQueryFn<string | FetchArgs, unknown, FetchBaseQueryError, {}, FetchBaseQueryMeta>, "products" | "reviews" | "orders", any, "baseApi">>; (): void; }) => {
   toast(
     <div className="flex flex-col space-y-2">
       <p>Are you sure you want to proceed?</p>
@@ -166,7 +169,8 @@ function Row(props: { row: ReturnType<typeof createData> }) {
 
 export default function CollapsibleTable() {
   const { data, isLoading } = useGetAllProductsQuery({});
-  const products = data?.data;
+  const products   = data?.data;
+  console.log(products,"products");
 
   if (isLoading) {
     return <Loading />;
@@ -200,7 +204,11 @@ export default function CollapsibleTable() {
   };
 
   // Usage
-  const rows = transformArray(products);
+  let rows: any[]  = []
+  if(products?.length){
+     rows   = transformArray(products);
+  }
+  
 
   console.log(products, "products");
   return (

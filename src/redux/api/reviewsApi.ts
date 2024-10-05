@@ -17,7 +17,7 @@ export type TQueryParams = {
   page?: number;
 };
 
-type TServerResponseForAllReview = {
+export type TServerResponseForAllReview = {
   success: boolean;
   data: TReview[];
   statusCode: number;

@@ -1,5 +1,4 @@
 import React from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
 import { TProduct } from "../redux/api/productsApi";
 import { Rating } from "@smastrom/react-rating";
@@ -19,7 +18,6 @@ type ProductCardProps = {
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const { availableQuantity, title, brand, price, ratings, _id, image } =
     product;
-  console.log("image", image);
   return (
     <Card sx={{ maxWidth: 345, paddingTop: 3 }}>
       <CardMedia sx={{ height: 140 }} image={image} title="Product Image" />

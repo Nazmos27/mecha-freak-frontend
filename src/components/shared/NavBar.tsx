@@ -68,7 +68,7 @@ const Navbar: React.FC = () => {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <img
-            src="./public/keyboard_4043232.png"
+            src="https://i.ibb.co.com/GCgB5yP/keyboard-4043232.png"
             alt="logo"
             height={50}
             width={50}

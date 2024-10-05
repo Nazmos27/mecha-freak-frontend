@@ -10,6 +10,8 @@ export type TProduct = {
   ratings: number;
   description: string;
   isDeleted?: boolean;
+  createdAt:string;
+  
 };
 
 export type TQueryParams = {

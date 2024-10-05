@@ -1,51 +1,54 @@
-# React + TypeScript + Vite
+# Mecha Freak -
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Live [link](https://mecha-freak.vercel.app)
 
-Currently, two official plugins are available:
+Welcome to Mecha Freak, the ultimate destination for mechanical keyboard enthusiasts! Our e-commerce platform is designed to offer a curated selection of high-quality mechanical keyboards, combining cutting-edge technology with craftsmanship to deliver the best typing and gaming experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This website is built using the latest tech stack, ensuring a smooth, responsive, and user-friendly shopping experience. From customizable layouts to dynamic product filtering, Mecha Freak leverages modern tools and frameworks to provide an optimized e-commerce solution for keyboard enthusiasts worldwide.
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+**Client:**
+[ReactJS](https://nodejs.org/), [Typescript](https://www.expresjs.org/), [Material UI](https://www.mongodb.com/), [Stipe Payment](https://zod.dev/)
 
-- Configure the top-level `parserOptions` property like this:
+**Server:**
+[NodeJS](https://nodejs.org/), [ExpressJS](https://www.expresjs.org/), [MongoDB](https://www.mongodb.com/), [Zod](https://zod.dev/), [Mongoose ODM](https://mongoosejs.com/), [JWT](https://www.npmjs.com/package/jsonwebtoken)
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Features
+
+> - Create product
+> - Update Product
+> - Delete Product
+> - Visit Products
+> - Search Products
+> - Add to Cart Product
+> - Check out
+> - Place Order
+> - Payment Gateway (stripe)
+> - Give Review
+> - Optimized data sharing with Redux
+> - Optimized data fetching with RTK Query
+
+---
+
+## Installation guideline:
+
+- Clone [this](https://github.com/Nazmos27/mecha-freak-frontend) repository
+- The main branch is the most stable branch at any given time, ensure you're working from it.
+- Then run this command to install all dependencies
+
+```language
+npm i
+
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- Run this command to start the application.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+  npm run dev
 ```
-"# mecha-freak-frontend" 
+
+---
+
+> - Server side code [link](https://github.com/Nazmos27/mecha-freak-frontend)
+> - Live server [link](https://mecha-freak-server.vercel.app/)

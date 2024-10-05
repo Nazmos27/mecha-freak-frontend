@@ -10,7 +10,8 @@ import ReviewSwipper from "./ReviewSwipper";
 
 
 const ReviewSection = () => {
-  const { data, isLoading } = useGetAllReviewQuery();
+  const { data , isLoading } = useGetAllReviewQuery();
+  
   if (isLoading) {
     return <Loading />;
   }
