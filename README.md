@@ -9,7 +9,7 @@ This website is built using the latest tech stack, ensuring a smooth, responsive
 ## Tech Stack
 
 **Client:**
-[ReactJS](https://nodejs.org/), [Typescript](https://www.expresjs.org/), [Material UI](https://www.mongodb.com/), [Stipe Payment](https://zod.dev/)
+[ReactJS](https://nodejs.org/), [Typescript](https://www.expresjs.org/),[Redux](https://www.expresjs.org/),[RTK Query](https://www.expresjs.org/), [Material UI](https://www.mongodb.com/), [Stipe Payment](https://zod.dev/)
 
 **Server:**
 [NodeJS](https://nodejs.org/), [ExpressJS](https://www.expresjs.org/), [MongoDB](https://www.mongodb.com/), [Zod](https://zod.dev/), [Mongoose ODM](https://mongoosejs.com/), [JWT](https://www.npmjs.com/package/jsonwebtoken)
