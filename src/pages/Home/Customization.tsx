@@ -2,7 +2,7 @@ import SectionHeader from "../../components/shared/SectionHeader";
 
 export default function Customization() {
   return (
-    <div className="flex min-h-svh border-2 justify-center items-center md:p-16 md:gap-8">
+    <div className="md:flex min-h-svh md:justify-center md:items-center md:p-16 md:gap-8">
       <div className="md:w-1/2 ">
         <img
           src="https://i.ibb.co.com/pj5F5pN/CIDOO-V75-Pro-Matte-Switch-Linear.jpg"

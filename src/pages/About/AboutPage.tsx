@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import Container from "../../components/Container";
 import SectionHeader from "../../components/shared/SectionHeader";
 import Lottie from "lottie-react";
-import aboutUs from "../../../public/aboutUs.json"
+import aboutUs from "../../../src/assets/aboutUs.json"
 const AboutPage: React.FC = () => {
   return (
     <div>
@@ -46,13 +46,13 @@ Our goal is to be at the forefront of innovation and customer satisfaction in th
             </p>
           </div>
         </div> */}
-        <div className="flex border-2 my-20 min-h-svh justify-between p-20 items-center">
-        <div className="md:w-1/2">
+        <div className="md:flex border-2 my-20 min-h-svh md:justify-between md:p-20 p-10 md:items-center">
+        <div className="md:w-1/2 w-full">
           <Lottie animationData={aboutUs}></Lottie>
         </div>
         <div className="md:w-1/2 space-y-4" >
           <SectionHeader title="About us" description=""></SectionHeader>
-          <p className="">In 2024, driven by a profound passion for mechanical keyboards,<br /> <b>Md Nazmos Sakib</b> embarked on a mission to bring together a community of like-minded enthusiasts. This vision laid the foundation for Mecha Freak, a venture dedicated to curating and providing only the finest mechanical keyboards.</p><p>With a commitment to merging cutting-edge technology and masterful craftsmanship, Mecha Freak strives to set a new standard of excellence in the world of mechanical keyboards, all while fostering a thriving community around this shared passion. </p>
+          <p className="text-sm md:text-lg">In 2024, driven by a profound passion for mechanical keyboards,<br /> <b>Md Nazmos Sakib</b> embarked on a mission to bring together a community of like-minded enthusiasts. This vision laid the foundation for Mecha Freak, a venture dedicated to curating and providing only the finest mechanical keyboards.</p><p className="text-sm md:text-lg">With a commitment to merging cutting-edge technology and masterful craftsmanship, Mecha Freak strives to set a new standard of excellence in the world of mechanical keyboards, all while fostering a thriving community around this shared passion. </p>
         </div>
         </div>
       </Container>

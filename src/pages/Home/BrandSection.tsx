@@ -27,7 +27,7 @@ const BrandSection: React.FC = () => {
         <Marquee>
           {brandInfo.map((logo, index) => (
             <div key={index}>
-              <img src={logo} alt="logo" className="grayscale md:h-32 md:w-44 ml-4" />
+              <img src={logo} alt="logo" className="grayscale md:h-32 md:w-44 h-20 w-32 ml-4" />
             </div>
           ))}
         </Marquee>

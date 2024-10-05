@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import { FaCartShopping } from "react-icons/fa6";
 import { useAppSelector } from "../../redux/hooks";
 import { totalCartItems } from "../../redux/features/cart/cartSlice";
 
@@ -69,8 +68,8 @@ const Navbar: React.FC = () => {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <img
-            src="../../../public/keyboard_4043232.png"
-            alt=""
+            src="./public/keyboard_4043232.png"
+            alt="logo"
             height={50}
             width={50}
             style={{ display: isMobile ? "none" : "block" }}
@@ -79,7 +78,7 @@ const Navbar: React.FC = () => {
             variant="h6"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href="/"
             sx={{
               mr: 2,
               ml: 2,
@@ -161,11 +160,7 @@ const Navbar: React.FC = () => {
                   <Typography textAlign="center">Dashboard</Typography>
                 </NavLink>
               </MenuItem>
-              {/* {pages.map((page) => (
-              <MenuItem key={page} onClick={handleCloseNavMenu}>
-                <Typography sx={{ textAlign: "center" }}>{page}</Typography>
-              </MenuItem>
-            ))} */}
+              
             </Menu>
           </Box>
 
@@ -229,16 +224,7 @@ const Navbar: React.FC = () => {
                 <Typography textAlign="center">Dashboard</Typography>
               </NavLink>
             </MenuItem>
-            {/* {pages.map((page) => (
-            <Button
-              key={page}
-              onClick={handleCloseNavMenu}
-              variant="contained"
-              sx={{ my: 2, mx: 1, color: "white", display: "block" }}
-            >
-              <Link to={page.toLowerCase()}>{page}</Link>
-            </Button>
-          ))} */}
+            
           </Box>
           <Box sx={{ flexGrow: 0 }}>
             <IconButton

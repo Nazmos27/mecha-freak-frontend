@@ -1,4 +1,3 @@
-import React from "react";
 import SectionHeader from "../../components/shared/SectionHeader";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
@@ -9,7 +8,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 const WhyMecha = () => {
   return (
     <div className=" min-h-svh mt-20">
-      <div className="m-10 flex justify-around items-center">
+      <div className="m-10 md:flex md:justify-around md:items-center">
         <div className="md:w-1/2">
           <div className="mx-auto text-center">
             <SectionHeader title="Why Choose Mechanical Keyboard" description="" />
@@ -181,4 +180,3 @@ const WhyMecha = () => {
 
 export default WhyMecha;
 
-// https://i.ibb.co.com/tsXS1c5/ba09e054-842c-4453-b3e2-4a89f825356f.jpg
