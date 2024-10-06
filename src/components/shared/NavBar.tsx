@@ -122,42 +122,42 @@ const Navbar: React.FC = () => {
             >
               <MenuItem onClick={handleCloseNavMenu}>
                 <NavLink
-                  className={({ isActive }) => (isActive ? "activeRoute" : "")}
+                  className={({ isActive }) => (isActive ? "text-green-800 font-bold" : "")}
                   to="/"
                 >
-                  <Typography textAlign="center">Home</Typography>
+                  Home
                 </NavLink>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
                 <NavLink
-                  className={({ isActive }) => (isActive ? "activeRoute" : "")}
+                  className={({ isActive }) => (isActive ? "text-green-800 font-bold" : "")}
                   to="/products"
                 >
-                  <Typography textAlign="center">Products</Typography>
+                  Products
                 </NavLink>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
                 <NavLink
-                  className={({ isActive }) => (isActive ? "activeRoute" : "")}
+                  className={({ isActive }) => (isActive ? "text-green-800 font-bold" : "")}
                   to="/about"
                 >
-                  <Typography textAlign="center">About Us</Typography>
+                  About Us
                 </NavLink>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
                 <NavLink
-                  className={({ isActive }) => (isActive ? "activeRoute" : "")}
+                  className={({ isActive }) => (isActive ? "text-green-800 font-bold" : "")}
                   to="/contact"
                 >
-                  <Typography textAlign="center">Contact Us</Typography>
+                  Contact Us
                 </NavLink>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
                 <NavLink
-                  className={({ isActive }) => (isActive ? "activeRoute" : "")}
+                  className={({ isActive }) => (isActive ? "text-green-800 font-bold" : "")}
                   to="/dashboard"
                 >
-                  <Typography textAlign="center">Dashboard</Typography>
+                  Dashboard
                 </NavLink>
               </MenuItem>
               
@@ -186,42 +186,42 @@ const Navbar: React.FC = () => {
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             <MenuItem onClick={handleCloseNavMenu}>
               <NavLink
-                className={({ isActive }) => (isActive ? "activeRoute" : "")}
+                className={({ isActive }) => (isActive ? "text-green-800 font-bold" : "")}
                 to="/"
               >
-                <Typography textAlign="center">Home</Typography>
+                Home
               </NavLink>
             </MenuItem>
             <MenuItem onClick={handleCloseNavMenu}>
               <NavLink
-                className={({ isActive }) => (isActive ? "activeRoute" : "")}
+                className={({ isActive }) => (isActive ? "text-green-800 font-bold" : "")}
                 to="/products"
               >
-                <Typography textAlign="center">Products</Typography>
+                Products
               </NavLink>
             </MenuItem>
             <MenuItem onClick={handleCloseNavMenu}>
               <NavLink
-                className={({ isActive }) => (isActive ? "activeRoute" : "")}
+                className={({ isActive }) => (isActive ? "text-green-800 font-bold" : "")}
                 to="/about"
               >
-                <Typography textAlign="center">About Us</Typography>
+                About Us
               </NavLink>
             </MenuItem>
             <MenuItem onClick={handleCloseNavMenu}>
               <NavLink
-                className={({ isActive }) => (isActive ? "activeRoute" : "")}
+                className={({ isActive }) => (isActive ? "text-green-800 font-bold" : "")}
                 to="/contact"
               >
-                <Typography textAlign="center">Contact Us</Typography>
+                Contact Us
               </NavLink>
             </MenuItem>
             <MenuItem onClick={handleCloseNavMenu}>
               <NavLink
-                className={({ isActive }) => (isActive ? "activeRoute" : "")}
+                className={({ isActive }) => (isActive ? "text-green-800 font-bold" : "")}
                 to="/dashboard"
               >
-                <Typography textAlign="center">Dashboard</Typography>
+                Dashboard
               </NavLink>
             </MenuItem>
             

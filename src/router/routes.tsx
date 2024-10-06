@@ -14,7 +14,6 @@ import ContactPage from "../pages/Contact/ContactPage";
 import PaymentSuccess from "../components/PaymentSuccess";
 import PaymentFailure from "../components/PaymentFailure";
 
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -79,11 +78,15 @@ const router = createBrowserRouter([
   },
   {
     path: "/payment-success",
-    element: <PaymentSuccess/>
+    element: <PaymentSuccess />,
+    errorElement: <ErrorPage />,
+    
   },
   {
     path: "/payment-failure",
-    element: <PaymentFailure/>
+    element: <PaymentFailure />,
+    errorElement: <ErrorPage />,
+    
   },
 ]);
 

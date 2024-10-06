@@ -39,6 +39,7 @@ const ProductForm: React.FC = () => {
         navigate("/dashboard");
       }
     } catch (error) {
+      console.log(error);
       toast.error("Something went wrong", { id: toastId, duration: 2000 });
     }
   };

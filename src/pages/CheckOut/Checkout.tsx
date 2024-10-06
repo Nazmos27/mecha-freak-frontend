@@ -64,29 +64,6 @@ const CheckoutForm: React.FC = () => {
     };
   }, [cartItems, getTotalCartItems]);
 
-  //payment process
-
-  // const makePayment = async() => {
-  //   const stripe = loadStripe('pk_test_51NIAoPCxYXIJWXf7MNlDJdBopmMpHI4jzdxBKv644fp07CPUBzn5D978PafikVKwrO3kUKVE4yzelvk2h87jOInL00suiUgQgj')
-  //   const body = {
-  //     products : cart
-  //   }
-  //   const headers = {
-  //     "Content-Type" : "aplication/json"
-  //   }
-
-  //   const response = await fetch(`${apiUrl}/create-checkout-session`,{
-  //     method : "POST",
-  //     headers : headers,
-  //     body : JSON.stringify(body)
-  //   })
-
-  //   const session = await response.json()
-
-  //   const result =  stripe.redirectToCheckout({
-  //     sessionId: session.id
-  //   })
-  // }
   const key = import.meta.env.VITE_STRIPE_SECRET_KEY;
   console.log(key);
   const stripePromise = loadStripe(key);
@@ -131,97 +108,7 @@ const CheckoutForm: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto p-6">
       <h2 className="text-2xl font-bold mb-6">Checkout</h2>
-      {/* <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="grid grid-cols-1 lg:grid-cols-2 gap-6"
-      >
-        <div className="col-span-1">
-          <label className="block text-sm font-medium text-gray-700">
-            Name
-            <input
-              type="text"
-              {...register("name", { required: "Name is required" })}
-              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm"
-            />
-            {errors.name && (
-              <p className="text-red-500 text-sm">{errors.name.message}</p>
-            )}
-          </label>
-        </div>
-
-        <div className="col-span-1">
-          <label className="block text-sm font-medium text-gray-700">
-            Phone
-            <input
-              type="text"
-              {...register("phone", { required: "Phone is required" })}
-              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm"
-            />
-            {errors.phone && (
-              <p className="text-red-500 text-sm">{errors.phone.message}</p>
-            )}
-          </label>
-        </div>
-
-        <div className="col-span-1">
-          <label className="block text-sm font-medium text-gray-700">
-            Email
-            <input
-              type="email"
-              {...register("email", { required: "Email is required" })}
-              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm"
-            />
-            {errors.email && (
-              <p className="text-red-500 text-sm">{errors.email.message}</p>
-            )}
-          </label>
-        </div>
-        <div className="col-span-1">
-          <label className="block text-sm font-medium text-gray-700">
-            Total Price
-            <input
-              type="number"
-              {...register("totalPrice", {
-                required: "Total Price is required",
-                valueAsNumber: true,
-              })}
-              value={cartItems.totalPrice}
-              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm"
-            />
-            {errors.totalPrice && (
-              <p className="text-red-500 text-sm">
-                {errors.totalPrice.message}
-              </p>
-            )}
-          </label>
-        </div>
-        <div className="col-span-2">
-          <label className="block text-sm font-medium text-gray-700">
-            Delivery Address
-            <input
-              type="text"
-              {...register("deliveryAddress", {
-                required: "Delivery Address is required",
-              })}
-              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm"
-            />
-            {errors.deliveryAddress && (
-              <p className="text-red-500 text-sm">
-                {errors.deliveryAddress.message}
-              </p>
-            )}
-          </label>
-        </div>
-
-        <div className="col-span-2">
-          <button
-            type="submit"
-            className="w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
-          >
-            Place Order
-          </button>
-        </div>
-      </form> */}
+      
       <form onSubmit={handleSubmit(onSubmit)}>
         <Grid container spacing={2}>
           {/* Name Field */}

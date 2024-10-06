@@ -1,4 +1,4 @@
-# Mecha Freak -
+# Mecha Freak 
 
 ## Live [link](https://mecha-freak.vercel.app)
 
